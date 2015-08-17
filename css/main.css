@@ -1,0 +1,26 @@
+body {
+    font-family: 'Inconsolata';
+}
+
+.content {
+    width: 75%;
+    margin: 0 auto;
+}
+
+h1.title {
+    text-decoration: underline;
+    margin-bottom: 0;
+    word-spacing: 11px;
+}
+
+h2.subtitle {
+    margin-top: 0;
+}
+
+a:link {
+    color: #000;
+}
+
+a:visited {
+    color: #F80;
+}
