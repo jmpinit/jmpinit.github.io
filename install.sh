@@ -25,6 +25,6 @@ pushd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 popd
 
 # Overwrite .vimrc
-curl http://sh.owentrueblood.com/dotfiles/.vimrc > $HOME/.vimrc
+curl -L http://sh.owentrueblood.com/dotfiles/.vimrc > $HOME/.vimrc
 
 finish
