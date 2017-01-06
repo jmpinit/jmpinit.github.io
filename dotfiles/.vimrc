@@ -27,6 +27,13 @@ set nofoldenable
 " prevent comment continuation
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" send more characters for redraws
+set ttyfast
+
+" enable mouse
+set mouse=a
+set ttymouse=xterm2
+
 " NERDTree stuff
 " cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 " 	hide executables
