@@ -34,6 +34,9 @@ set ttyfast
 set mouse=a
 set ttymouse=xterm2
 
+" share system clipboard
+set clipboard=unnamed
+
 " NERDTree stuff
 " cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 " 	hide executables
