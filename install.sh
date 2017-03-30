@@ -27,4 +27,7 @@ popd
 # Overwrite .vimrc
 curl -L http://sh.owentrueblood.com/dotfiles/.vimrc > $HOME/.vimrc
 
+# Set vim as system default editor
+update-alternatives --set editor /usr/bin/vim.basic
+
 finish
