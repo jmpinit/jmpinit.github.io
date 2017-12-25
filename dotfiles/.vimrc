@@ -38,7 +38,7 @@ set ttymouse=xterm2
 set clipboard=unnamed
 
 " NERDTree stuff
-" cd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
+" git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 " 	hide executables
 let NERDTreeIgnore = ['\.o$', '\.bin$', '\.class$', '\.jar$', '\.pyc$']
 
