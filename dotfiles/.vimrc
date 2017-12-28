@@ -9,10 +9,11 @@ syntax on
 " associate uncommon filetypes with the right syntax
 au BufRead,BufNewFile *.pde setfiletype java
 
-" indentation with 4 spaces
+" indentation with spaces
+let num_spaces_for_tab = 2
+let &tabstop = num_spaces_for_tab
+let &shiftwidth = num_spaces_for_tab
 set smartindent
-set tabstop=4
-set shiftwidth=4
 set expandtab
 
 " incremental searching
