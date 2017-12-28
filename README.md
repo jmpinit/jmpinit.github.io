@@ -1,5 +1,5 @@
 # jmptable.github.io
 
 ```
-curl http://sh.owentrueblood.com/install.sh | bash
+curl https://raw.githubusercontent.com/jmptable/jmptable.github.io/master/install.sh | bash
 ```

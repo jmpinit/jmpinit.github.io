@@ -25,7 +25,7 @@ pushd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
 popd
 
 # Overwrite .vimrc
-curl -L http://sh.owentrueblood.com/dotfiles/.vimrc > $HOME/.vimrc
+curl -L https://raw.githubusercontent.com/jmptable/jmptable.github.io/master/dotfiles/.vimrc > $HOME/.vimrc
 
 # Set vim as system default editor
 update-alternatives --set editor /usr/bin/vim.basic
