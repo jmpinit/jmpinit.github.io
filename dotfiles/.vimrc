@@ -14,15 +14,16 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Fuzzy finder
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" https://github.com/junegunn/fzf.vim#usage
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " NERDTree file tree navigation
-"Plug 'scrooloose/nerdtree', {
-"  \'NERDTreeIgnore': ['\.o$', '\.bin$', '\.class$', '\.jar$', '\.pyc$'],
-"  \'NERDTreeWinSize': 16,
-"\}
-
-Plug 'scrooloose/nerdtree'
+" https://raw.githubusercontent.com/scrooloose/nerdtree/master/doc/NERDTree.txt
+Plug 'scrooloose/nerdtree', {
+  \'NERDTreeIgnore': ['\.o$', '\.bin$', '\.class$', '\.jar$', '\.pyc$'],
+  \'NERDTreeWinSize': 16,
+\}
 
 " Initialize plugin system
 call plug#end()
