@@ -17,13 +17,6 @@ command -v vim >/dev/null 2>&1 || {
   fi
 }
 
-# Install Pathogen for plugin management
-mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# Install NERDTree
-pushd ~/.vim/bundle && git clone https://github.com/scrooloose/nerdtree.git
-popd
-
 # Overwrite .vimrc
 curl -L https://raw.githubusercontent.com/jmptable/jmptable.github.io/master/dotfiles/.vimrc > $HOME/.vimrc
 
