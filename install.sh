@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit on any error
+set -o errexit
+
 function finish {
   echo "Nothing left to do. Exiting..."
   exit
