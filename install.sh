@@ -20,7 +20,7 @@ curl -L https://raw.githubusercontent.com/jmptable/jmptable.github.io/master/dot
 
 # Set vim as system default editor
 echo "Setting Vim as the default editor."
-update-alternatives --set editor /usr/bin/vim.basic
+sudo update-alternatives --set editor /usr/bin/vim.basic
 
 # Install zsh
 echo "Installing zsh and oh-my-zsh."
