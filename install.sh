@@ -25,6 +25,6 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 # Install zsh
 echo "Installing zsh and oh-my-zsh."
 sudo apt-get install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo -E sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 finish
