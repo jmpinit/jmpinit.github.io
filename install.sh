@@ -25,4 +25,4 @@ echo "Installing zsh and oh-my-zsh."
 sudo apt-get install -y zsh
 sudo -E sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-finish
+echo "Done!"
