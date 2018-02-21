@@ -8,6 +8,8 @@ function finish {
   exit
 }
 
+sudo apt-get update --fix-missing
+
 # Ensure that Vim is installed
 command -v vim >/dev/null 2>&1 || {
   echo "Vim is not installed. Installing it now."
