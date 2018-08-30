@@ -8,6 +8,17 @@ function finish {
   exit
 }
 
+# TODO: Tools
+# * ripgrep
+# * tldr
+# * Spectacle
+# * VS Code
+#   - Install shell command
+# * Karabiner
+#   - Switch caps lock with escape
+# * iTerm
+#   - Reuse previous session's directory
+
 sudo apt-get update --fix-missing
 
 sudo apt-get install -y git vim
