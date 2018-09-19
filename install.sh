@@ -20,23 +20,21 @@ function finish {
   exit
 }
 
-trap finish EXIT
-
 function install_package {
   # Update package listings once before installing any packages
   if [ -z ${PACKAGES_UPDATED+x} ]; then
-    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    if [[ "$PLATFORM" == "linux" ]]; then
       sudo apt-get update --fix-missing
-    elif [[ "$OSTYPE" == "darwin*" ]]; then
+    elif [[ "$PLATFORM" == "macos*" ]]; then
       brew update
     fi
 
     PACKAGES_UPDATED=1
   fi
 
-  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  if [[ "$PLATFORM" == "linux" ]]; then
     sudo apt-get install -y $1
-  elif [[ "$OSTYPE" == "darwin*" ]]; then
+  elif [[ "$PLATFORM" == "macos" ]]; then
     brew install $1
   else
     echo "Cannot install $1 on this platform"
@@ -66,13 +64,34 @@ function install_zsh {
   sudo -E sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
+function install_nodejs {
+  echo "Installing Node.js"
+
+  if [[ "$PLATFORM" == "linux" ]]; then
+    echo "Installation of Node.js on Linux is not implemented. Do it now."
+    exit 1
+  elif [[ "$PLATFORM" == "macos" ]]; then
+    curl https://nodejs.org/dist/v8.12.0/node-v8.12.0.pkg > $HOME/Downloads/nodejs.pkg
+    sudo installer -pkg $HOME/Downloads/nodejs.pkg -target /
+  else
+    echo "Unable to install node.js on this platform"
+  fi
+}
+
 function install_common {
   install_package git
   install_package vim
+  install_package ripgrep
   
   configure_vim
   set_vim_as_default
   install_zsh
+
+  install_nodejs
+
+  # TLDR
+  echo "Installing tldr for easy information about commands"
+  npm install -g tldr
 }
 
 function install_linux {
@@ -80,20 +99,84 @@ function install_linux {
   echo
 }
 
+function install_macos {
+  pushd $HOME/Downloads
+
+  # iTerm
+  if [ ! -f /Applications/iTerm.app ]; then
+    echo "Installing iTerm, a better terminal"
+    curl https://iterm2.com/downloads/stable/latest > $HOME/Downloads/iterm.zip
+    unzip ./iterm.zip
+    cp -r iTerm.app /Applications
+  else
+    echo "Not installing iTerm because it is already present"
+  fi
+
+  # Spectacle
+  if [ ! -f /Applications/Spectacle.app ]; then
+    echo "Installing Spectacle for window management"
+    curl https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip > $HOME/Downloads/Spectacle.zip
+    unzip ./Spectacle.zip
+    cp -r Spectacle.app /Applications
+  else
+    echo "Not installing Spectacle because it is already present"
+  fi
+
+  # Karabiner
+  if [ ! -f /Applications/Karabiner.app ]; then
+    echo "Installing Karabiner for key switching"
+    curl https://pqrs.org/osx/karabiner/files/Karabiner-Elements-12.1.0.dmg > $HOME/Downloads/Karabiner.dmg
+    sudo hdiutil attach ./Karabiner.dmg
+    sudo installer -pkg /Volumes/Karabiner*/*.pkg -target /
+    sudo hdiutil detach /Volumes/Karabiner*
+  else
+    echo "Not installing Karabiner because it is already present"
+  fi
+
+  # Exit ~/Downloads
+  popd
+}
+
 function install_windows {
   echo "Install SharpKeys from https://github.com/randyrants/sharpkeys/releases"
   echo "Run SharpKeys and swap escape with caps lock"
 }
 
-install_common
+function do_everything {
+  trap finish EXIT
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  install_linux
-elif [[ "$OSTYPE" == "msys" ]]; then
-  install_windows
-else
-  echo "Unknown OS type: $OSTYPE"
-  echo "Stopping installation"
-fi
+  # Identify the platform
 
-echo "Done!"
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    PLATFORM=linux
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    PLATFORM=macos
+  else
+    echo "Unknown platform. Halting installation."
+    exit 1
+  fi
+
+  install_common
+
+  if [[ "$PLATFORM" == "linux" ]]; then
+    install_linux
+  elif [[ "$PLATFORM" == "macos" ]]; then
+    install_macos
+  elif [[ "$PLATFORM" == "windows" ]]; then
+    install_windows
+  else
+    echo "Unknown OS type: $OSTYPE"
+    echo "Stopping installation"
+  fi
+
+  echo "Done!"
+
+  if [[ "$PLATFORM" == "macos" ]]; then
+    echo
+    echo "Manual steps:"
+    echo "\t( ) Open Spectacle and enable accessibility feature access"
+    echo "\t( ) Configure Karabiner to switch the Caps-Lock and Escape keys"
+  fi
+}
+
+do_everything
