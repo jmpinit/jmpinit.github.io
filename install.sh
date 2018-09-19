@@ -2,7 +2,7 @@
 
 # OSTYPE can be one of:
 # - linux-gnu
-# - darwin
+# - darwin*
 # - cygwin
 # - msys (part of MinGW, used by Git Bash)
 # - win32 (shouldn't happen b/c no Bash)
@@ -27,7 +27,7 @@ function install_package {
   if [ -z ${PACKAGES_UPDATED+x} ]; then
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
       sudo apt-get update --fix-missing
-    elif [[ "$OSTYPE" == "darwin" ]]; then
+    elif [[ "$OSTYPE" == "darwin*" ]]; then
       brew update
     fi
 
@@ -36,7 +36,7 @@ function install_package {
 
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     sudo apt-get install -y $1
-  elif [[ "$OSTYPE" == "darwin" ]]; then
+  elif [[ "$OSTYPE" == "darwin*" ]]; then
     brew install $1
   else
     echo "Cannot install $1 on this platform"
