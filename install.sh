@@ -90,7 +90,7 @@ function install_common {
 
   # TLDR
   echo "Installing tldr for easy information about commands"
-  npm install -g tldr
+  sudo npm install -g tldr
 }
 
 function install_linux {
