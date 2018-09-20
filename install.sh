@@ -68,8 +68,8 @@ function install_nodejs {
   echo "Installing Node.js"
 
   if [[ "$PLATFORM" == "linux" ]]; then
-    echo "Installation of Node.js on Linux is not implemented. Do it now."
-    exit 1
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    sudo apt-get install -y nodejs
   elif [[ "$PLATFORM" == "macos" ]]; then
     curl https://nodejs.org/dist/v8.12.0/node-v8.12.0.pkg > $HOME/Downloads/nodejs.pkg
     sudo installer -pkg $HOME/Downloads/nodejs.pkg -target /
