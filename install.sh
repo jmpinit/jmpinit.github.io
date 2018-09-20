@@ -81,7 +81,6 @@ function install_nodejs {
 function install_common {
   install_package git
   install_package vim
-  install_package ripgrep
   
   configure_vim
   set_vim_as_default
@@ -100,6 +99,8 @@ function install_linux {
 }
 
 function install_macos {
+  install_package ripgrep
+
   pushd $HOME/Downloads
 
   # iTerm
