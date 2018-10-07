@@ -73,3 +73,6 @@ if has("win32")
   set nobackup
 endif
 
+" Normally Q switches to Ex mode but making it redo the last macro is way more useful
+" Idea from Hillel: https://www.hillelwayne.com/post/vim-macro-trickz/
+nnoremap Q @@
