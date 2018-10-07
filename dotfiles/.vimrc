@@ -25,6 +25,9 @@ Plug 'scrooloose/nerdtree', {
   \'NERDTreeWinSize': 16,
 \}
 
+" JavaScript syntax support
+Plug 'pangloss/vim-javascript'
+
 " Initialize plugin system
 call plug#end()
 
