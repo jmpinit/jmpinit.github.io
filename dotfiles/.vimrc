@@ -28,6 +28,9 @@ Plug 'scrooloose/nerdtree', {
 " JavaScript syntax support
 Plug 'pangloss/vim-javascript'
 
+" Status line
+Plug 'vim-airline/vim-airline'
+
 " Initialize plugin system
 call plug#end()
 
