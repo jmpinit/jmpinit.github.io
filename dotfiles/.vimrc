@@ -79,3 +79,11 @@ endif
 " Normally Q switches to Ex mode but making it redo the last macro is way more useful
 " Idea from Hillel: https://www.hillelwayne.com/post/vim-macro-trickz/
 nnoremap Q @@
+
+" 80 column layout
+" https://stackoverflow.com/a/3765575
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
