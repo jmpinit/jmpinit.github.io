@@ -20,12 +20,21 @@ function finish {
   exit
 }
 
+function command_exists {
+  type "$1" &> /dev/null
+}
+
 function install_package {
   # Update package listings once before installing any packages
   if [ -z ${PACKAGES_UPDATED+x} ]; then
     if [[ "$PLATFORM" == "linux" ]]; then
       sudo apt-get update --fix-missing
     elif [[ "$PLATFORM" == "macos*" ]]; then
+      if ! command_exists brew; then
+        # Install Homebrew
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      fi
+
       brew update
     fi
 
@@ -98,7 +107,7 @@ function install_linux {
   echo
 }
 
-function install_macos {
+function install_macos {  
   install_package ripgrep
 
   pushd $HOME/Downloads
