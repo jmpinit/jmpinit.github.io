@@ -80,7 +80,7 @@ function install_nodejs {
     curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     sudo apt-get install -y nodejs
   elif [[ "$PLATFORM" == "macos" ]]; then
-    curl https://nodejs.org/dist/v8.12.0/node-v8.12.0.pkg > $HOME/Downloads/nodejs.pkg
+    curl -L https://nodejs.org/dist/v8.12.0/node-v8.12.0.pkg > $HOME/Downloads/nodejs.pkg
     sudo installer -pkg $HOME/Downloads/nodejs.pkg -target /
   else
     echo "Unable to install node.js on this platform"
@@ -115,7 +115,7 @@ function install_macos {
   # iTerm
   if [ ! -f /Applications/iTerm.app ]; then
     echo "Installing iTerm, a better terminal"
-    curl https://iterm2.com/downloads/stable/latest > $HOME/Downloads/iterm.zip
+    curl -L https://iterm2.com/downloads/stable/latest > $HOME/Downloads/iterm.zip
     unzip ./iterm.zip
     cp -r iTerm.app /Applications
   else
@@ -125,7 +125,7 @@ function install_macos {
   # Spectacle
   if [ ! -f /Applications/Spectacle.app ]; then
     echo "Installing Spectacle for window management"
-    curl https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip > $HOME/Downloads/Spectacle.zip
+    curl -L https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip > $HOME/Downloads/Spectacle.zip
     unzip ./Spectacle.zip
     cp -r Spectacle.app /Applications
   else
@@ -135,7 +135,7 @@ function install_macos {
   # Karabiner
   if [ ! -f /Applications/Karabiner.app ]; then
     echo "Installing Karabiner for key switching"
-    curl https://pqrs.org/osx/karabiner/files/Karabiner-Elements-12.1.0.dmg > $HOME/Downloads/Karabiner.dmg
+    curl -L https://pqrs.org/osx/karabiner/files/Karabiner-Elements-12.1.0.dmg > $HOME/Downloads/Karabiner.dmg
     sudo hdiutil attach ./Karabiner.dmg
     sudo installer -pkg /Volumes/Karabiner*/*.pkg -target /
     sudo hdiutil detach /Volumes/Karabiner*
