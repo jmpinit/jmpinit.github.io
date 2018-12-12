@@ -159,6 +159,8 @@ function do_everything {
 
   if [[ "$OSTYPE" == "linux-gnu" ]]; then
     PLATFORM=linux
+  elif [[ "$OSTYPE" == "linux-gnueabihf" ]]; then
+    PLATFORM=linux
   elif [[ "$OSTYPE" == "darwin"* ]]; then
     PLATFORM=macos
   else
