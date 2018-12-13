@@ -29,7 +29,7 @@ function install_package {
   if [ -z ${PACKAGES_UPDATED+x} ]; then
     if [[ "$PLATFORM" == "linux" ]]; then
       sudo apt-get update --fix-missing
-    elif [[ "$PLATFORM" == "macos*" ]]; then
+    elif [[ "$PLATFORM" == "macos" ]]; then
       if ! command_exists brew; then
         # Install Homebrew
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -167,6 +167,8 @@ function do_everything {
     echo "Unknown platform. Halting installation."
     exit 1
   fi
+
+  echo "Installing software for $PLATFORM"
 
   install_common
 
