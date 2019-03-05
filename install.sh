@@ -103,8 +103,7 @@ function install_common {
 }
 
 function install_linux {
-  # Nothing yet
-  echo
+  install_package screen
 }
 
 function install_macos {  
