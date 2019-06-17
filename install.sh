@@ -165,7 +165,7 @@ function do_everything {
   elif [[ "$OSTYPE" == "cygwin" ]]; then
     PLATFORM=windows
   else
-    echo "Unknown platform. Halting installation."
+    echo "Unknown OSTYPE \"$OSTYPE\". Halting installation."
     exit 1
   fi
 
