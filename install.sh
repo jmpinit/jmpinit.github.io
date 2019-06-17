@@ -162,6 +162,8 @@ function do_everything {
     PLATFORM=linux
   elif [[ "$OSTYPE" == "darwin"* ]]; then
     PLATFORM=macos
+  elif [[ "$OSTYPE" == "cygwin" ]]; then
+    PLATFORM=windows
   else
     echo "Unknown platform. Halting installation."
     exit 1
