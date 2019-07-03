@@ -71,7 +71,7 @@ set mouse=a
 set ttymouse=xterm2
 
 " Windows-specific configuration
-if has("win32")
+if has("win32") || has("win64")
   " No annoying '~' files that end up as litter on Windows
   set nobackup
 endif
