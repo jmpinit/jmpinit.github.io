@@ -70,8 +70,8 @@ function install_zsh {
   # Install zsh
   echo "Installing zsh and oh-my-zsh."
   install_package zsh
-  sudo -u $SUDO_USER -E sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  sudo chsh -s /usr/bin/zsh $SUDO_USER
+  sudo -u $USER -E sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sudo chsh -s /usr/bin/zsh $USER
 }
 
 function install_nodejs {
@@ -100,7 +100,7 @@ function install_common {
 
   # TLDR
   echo "Installing tldr for easy information about commands"
-  sudo -u $SUDO_USER npm install -g tldr
+  sudo -u $USER npm install -g tldr
 }
 
 function install_linux {
