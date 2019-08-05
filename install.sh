@@ -71,6 +71,7 @@ function install_zsh {
   echo "Installing zsh and oh-my-zsh."
   install_package zsh
   sudo -u $SUDO_USER -E sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sudo chsh -s /usr/bin/zsh $SUDO_USER
 }
 
 function install_nodejs {
