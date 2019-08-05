@@ -1,0 +1,8 @@
+language: bash
+
+before_script:
+    - curl -L https://raw.githubusercontent.com/jmptable/jmptable.github.io/master/install.sh | bash
+
+script:
+    - bash tests/run_tests.sh
+
