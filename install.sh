@@ -97,10 +97,6 @@ function install_common {
   install_zsh
 
   install_nodejs
-
-  # TLDR
-  echo "Installing tldr for easy information about commands"
-  sudo -u $USER npm install -g tldr
 }
 
 function install_linux {
