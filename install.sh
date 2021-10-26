@@ -13,7 +13,7 @@ set -o errexit
 
 function finish {
   if [[ $? -ne 0 ]]; then
-    echo "Something went wrong. Please fix the code at https://github.com/jmptable/jmptable.github.io/blob/master/install.sh . Thanks."
+    echo "Something went wrong. Please fix the code at https://github.com/jmpinit/jmpinit.github.io/blob/master/install.sh . Thanks."
   fi
 
   echo "Nothing left to do. Exiting..."
@@ -53,7 +53,7 @@ function install_package {
 function configure_vim {
   # Overwrite .vimrc
   echo "Overwriting ~/.vimrc."
-  curl -L https://raw.githubusercontent.com/jmptable/jmptable.github.io/master/dotfiles/.vimrc > $HOME/.vimrc
+  curl -L https://raw.githubusercontent.com/jmpinit/jmpinit.github.io/master/dotfiles/.vimrc > $HOME/.vimrc
 }
 
 function set_vim_as_default {
