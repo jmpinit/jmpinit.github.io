@@ -117,14 +117,14 @@ function install_macos {
   fi
 
   # Spectacle
-  if [ ! -f /Applications/Spectacle.app ]; then
-    echo "Installing Spectacle for window management"
-    curl -L https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip > $HOME/Downloads/Spectacle.zip
-    unzip ./Spectacle.zip
-    cp -r Spectacle.app /Applications
-  else
-    echo "Not installing Spectacle because it is already present"
-  fi
+  #if [ ! -f /Applications/Spectacle.app ]; then
+  #  echo "Installing Spectacle for window management"
+  #  curl -L https://s3.amazonaws.com/spectacle/downloads/Spectacle+1.2.zip > $HOME/Downloads/Spectacle.zip
+  #  unzip ./Spectacle.zip
+  #  cp -r Spectacle.app /Applications
+  #else
+  #  echo "Not installing Spectacle because it is already present"
+  #fi
 
   # Karabiner
   if [ ! -f /Applications/Karabiner-Elements.app ]; then
