@@ -95,8 +95,6 @@ function install_common {
   configure_vim
   set_vim_as_default
   install_zsh
-
-  install_nodejs
 }
 
 function install_linux {
@@ -129,7 +127,7 @@ function install_macos {
   fi
 
   # Karabiner
-  if [ ! -f /Applications/Karabiner.app ]; then
+  if [ ! -f /Applications/Karabiner-Elements.app ]; then
     echo "Installing Karabiner for key switching"
     curl -L https://pqrs.org/osx/karabiner/files/Karabiner-Elements-12.1.0.dmg > $HOME/Downloads/Karabiner.dmg
     sudo hdiutil attach ./Karabiner.dmg
