@@ -44,10 +44,13 @@ syntax on
 au BufRead,BufNewFile *.pde setfiletype java " Processing.org
 
 " Indentation with spaces
-let num_spaces_for_tab = 2
+let num_spaces_for_tab = 4
 let &tabstop = num_spaces_for_tab
 let &shiftwidth = num_spaces_for_tab
 set expandtab
+
+" Per-file-type behavior
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 " Replaces smartindent, which caused problems with certain characters like "#"
 set cindent
@@ -67,8 +70,9 @@ set nofoldenable
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Enable mouse
-set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+    set mouse=a
+endif
 
 " Windows-specific configuration
 if has("win32") || has("win64")
